@@ -33,13 +33,13 @@ jobs:
       - name: Deploy to Firebase Hosting
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          npx -y firebase deploy --project ${{ vars.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
+          npx -y firebase-tools deploy --project ${{ vars.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Preview Firebase Hosting (PR only)
         if: github.event_name == 'pull_request'
         run: |
-          npx -y firebase hosting:channel:deploy preview-${{ github.event.number }} --project ${{ vars.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
+          npx -y firebase-tools hosting:channel:deploy preview-${{ github.event.number }} --project ${{ vars.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
