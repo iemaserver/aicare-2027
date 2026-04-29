@@ -11,11 +11,13 @@ on:
 permissions:
   contents: read
   pull-requests: write
-  deployments: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name == 'pull_request' && format('PR-{0}', github.event.number) || 'Production' }}
+      url: ${{ github.event_name == 'pull_request' && steps.deploy-preview.outputs.channel_url || format('https://{0}.web.app', vars.FIREBASE_PROJECT_ID) }}
 
     steps:
       - name: Checkout repository
@@ -48,62 +50,6 @@ jobs:
           echo "$OUTPUT"
           CHANNEL_URL=$(echo "$OUTPUT" | grep -oP 'Channel URL \([^)]+\): \Khttps://[^\s]+')
           echo "channel_url=$CHANNEL_URL" >> $GITHUB_OUTPUT
-
-      - name: Create GitHub Deployment (Production)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        id: deployment-prod
-        uses: octokit/request-action@v2.x
-        with:
-          repo: ${{ github.event.repository.name }}
-          owner: ${{ github.event.repository.owner.login }}
-          route: POST /repos/{owner}/{repo}/deployments
-          environment: Production
-          ref: ${{ github.sha }}
-          auto_merge: false
-          description: "Production deployment on Firebase Hosting"
-          payload: '{"web_url":"https://${{ vars.FIREBASE_PROJECT_ID }}.web.app"}'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create GitHub Deployment (Preview)
-        if: github.event_name == 'pull_request'
-        id: deployment-prev
-        uses: octokit/request-action@v2.x
-        with:
-          repo: ${{ github.event.repository.name }}
-          owner: ${{ github.event.repository.owner.login }}
-          route: POST /repos/{owner}/{repo}/deployments
-          environment: Preview-PR-${{ github.event.number }}
-          ref: ${{ github.sha }}
-          auto_merge: false
-          description: "Preview deployment for PR #${{ github.event.number }}"
-          payload: '{"web_url":"${{ steps.deploy-preview.outputs.channel_url }}"}'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set Deployment Status (Production)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: octokit/request-action@v2.x
-        with:
-          repo: ${{ github.event.repository.name }}
-          owner: ${{ github.event.repository.owner.login }}
-          route: POST /repos/{owner}/{repo}/deployments/${{ steps.deployment-prod.outputs.id }}/statuses
-          state: success
-          log_url: "https://${{ vars.FIREBASE_PROJECT_ID }}.web.app"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set Deployment Status (Preview)
-        if: github.event_name == 'pull_request'
-        uses: octokit/request-action@v2.x
-        with:
-          repo: ${{ github.event.repository.name }}
-          owner: ${{ github.event.repository.owner.login }}
-          route: POST /repos/{owner}/{repo}/deployments/${{ steps.deployment-prev.outputs.id }}/statuses
-          state: success
-          log_url: "${{ steps.deploy-preview.outputs.channel_url }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment Preview URL on PR
         if: github.event_name == 'pull_request'
