@@ -42,8 +42,6 @@ jobs:
       - name: Deploy Preview to Firebase Hosting (PR only)
         if: github.event_name == 'pull_request'
         id: deploy-preview
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           # Capture full output
           OUTPUT=$(npx -y firebase-tools hosting:channel:deploy preview-${{ github.event.number }} --project ${{ vars.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }} --expires 30d 2>&1)
@@ -61,13 +59,7 @@ jobs:
             const previewUrl = '${{ steps.deploy-preview.outputs.channel_url }}';
             const prNumber = context.payload.pull_request.number;
 
-            const commentBody = `
-## 🚀 Preview Deployment
-
-**Preview URL:** ${previewUrl}
-
-> This preview will expire in 30 days.
-            `;
+            const commentBody = '## 🚀 Preview Deployment' + '\n\n' + `**Preview URL:** ${previewUrl}` + '\n\n' + '> This preview will expire in 30 days.';
 
             // Check for existing comment
             const { data: comments } = await github.rest.issues.listComments({
