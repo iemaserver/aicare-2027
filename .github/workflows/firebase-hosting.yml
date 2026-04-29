@@ -11,6 +11,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  deployments: write
 
 jobs:
   build-and-deploy:
@@ -34,7 +35,7 @@ jobs:
         env:
           CI: false
 
-      - name: Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting (Production)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           npx -y firebase-tools deploy --only hosting --project ${{ vars.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
@@ -43,13 +44,66 @@ jobs:
         if: github.event_name == 'pull_request'
         id: deploy-preview
         run: |
-          # Capture full output
           OUTPUT=$(npx -y firebase-tools hosting:channel:deploy preview-${{ github.event.number }} --project ${{ vars.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }} --expires 30d 2>&1)
           echo "$OUTPUT"
-
-          # Extract the channel URL from output
           CHANNEL_URL=$(echo "$OUTPUT" | grep -oP 'Channel URL \([^)]+\): \Khttps://[^\s]+')
           echo "channel_url=$CHANNEL_URL" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Deployment (Production)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        id: deployment-prod
+        uses: octokit/request-action@v2.x
+        with:
+          repo: ${{ github.event.repository.name }}
+          owner: ${{ github.event.repository.owner.login }}
+          route: POST /repos/{owner}/{repo}/deployments
+          environment: Production
+          ref: ${{ github.sha }}
+          auto_merge: false
+          description: "Production deployment on Firebase Hosting"
+          payload: '{"web_url":"https://${{ vars.FIREBASE_PROJECT_ID }}.web.app"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Deployment (Preview)
+        if: github.event_name == 'pull_request'
+        id: deployment-prev
+        uses: octokit/request-action@v2.x
+        with:
+          repo: ${{ github.event.repository.name }}
+          owner: ${{ github.event.repository.owner.login }}
+          route: POST /repos/{owner}/{repo}/deployments
+          environment: Preview-PR-${{ github.event.number }}
+          ref: ${{ github.sha }}
+          auto_merge: false
+          description: "Preview deployment for PR #${{ github.event.number }}"
+          payload: '{"web_url":"${{ steps.deploy-preview.outputs.channel_url }}"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Deployment Status (Production)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: octokit/request-action@v2.x
+        with:
+          repo: ${{ github.event.repository.name }}
+          owner: ${{ github.event.repository.owner.login }}
+          route: POST /repos/{owner}/{repo}/deployments/${{ steps.deployment-prod.outputs.id }}/statuses
+          state: success
+          log_url: "https://${{ vars.FIREBASE_PROJECT_ID }}.web.app"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Deployment Status (Preview)
+        if: github.event_name == 'pull_request'
+        uses: octokit/request-action@v2.x
+        with:
+          repo: ${{ github.event.repository.name }}
+          owner: ${{ github.event.repository.owner.login }}
+          route: POST /repos/{owner}/{repo}/deployments/${{ steps.deployment-prev.outputs.id }}/statuses
+          state: success
+          log_url: "${{ steps.deploy-preview.outputs.channel_url }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment Preview URL on PR
         if: github.event_name == 'pull_request'
@@ -58,22 +112,14 @@ jobs:
           script: |
             const previewUrl = '${{ steps.deploy-preview.outputs.channel_url }}';
             const prNumber = context.payload.pull_request.number;
-
-            const commentBody = '## 🚀 Preview Deployment' + '\n\n' + `**Preview URL:** ${previewUrl}` + '\n\n' + '> This preview will expire in 30 days.';
-
-            // Check for existing comment
+            const commentBody = '## 🚀 Preview Deployment\n\n**Preview URL:** ' + previewUrl + '\n\n> This preview will expire in 30 days.';
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber
             });
-
-            const existingComment = comments.find(
-              c => c.user.login === 'github-actions[bot]' && c.body.includes('Preview Deployment')
-            );
-
+            const existingComment = comments.find(c => c.user.login === 'github-actions[bot]' && c.body.includes('Preview Deployment'));
             if (existingComment) {
-              // Update existing comment
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -81,7 +127,6 @@ jobs:
                 body: commentBody
               });
             } else {
-              // Create new comment
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
