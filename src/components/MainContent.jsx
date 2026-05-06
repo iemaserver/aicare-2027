@@ -1,4 +1,4 @@
-// status: 'past' | 'upcoming' | 'active'
+//maincontent.jsx // status: 'past' | 'upcoming' | 'active'
 // Conference was November 2025 — all complete. Styled with clear timeline hierarchy.
 const importantDates = [
   { title: 'Call for Papers',                  value: 'April 30, 2026',        status: 'active',   badge: 'upcoming' },
@@ -57,6 +57,21 @@ export default function MainContent() {
           TWO-COLUMN CONTENT
       ══════════════════════════════════════ */}
       <div className="main-content" style={{ position: 'relative', zIndex: 1 }}>
+
+        {/* ── CMT ACKNOWLEDGEMENT (Top Section) ── */}
+        <p style={{
+          textAlign: 'center',
+          fontSize: '14px',
+          fontWeight: '600',
+          color: '#1a3a6a',
+          maxWidth: '900px',
+          margin: '0 auto 36px auto',
+          lineHeight: '1.6',
+          padding: '0 20px'
+        }}>
+          The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+        </p>
+
         <div className="content-row">
 
           {/* Left column */}
@@ -114,42 +129,42 @@ export default function MainContent() {
           </div>
 
           {/* ── SIDEBAR — Important Dates (Clean) ── */}
-<div>
-  <div className="sidebar-box">
+          <div>
+            <div className="sidebar-box">
 
-    {/* Header */}
-    <h3 className="section-title" style={{ fontSize: '1.15rem' }}>
-      Important Dates
-    </h3>
+              {/* Header */}
+              <h3 className="section-title" style={{ fontSize: '1.15rem' }}>
+                Important Dates
+              </h3>
 
-    {/* Slim note */}
-    <p style={{
-      fontSize: 11.5,
-      color: '#888',
-      textAlign: 'left',
-      marginBottom: 8,
-      letterSpacing: '0.3px',
-      lineHeight: 1.5,
-    }}>
-      AICARE 2027 — All milestones.
-    </p>
+              {/* Slim note */}
+              <p style={{
+                fontSize: 11.5,
+                color: '#888',
+                textAlign: 'left',
+                marginBottom: 8,
+                letterSpacing: '0.3px',
+                lineHeight: 1.5,
+              }}>
+                AICARE 2027 — All milestones.
+              </p>
 
-    {/* Timeline items */}
-    <div style={{ marginTop: 4 }}>
-      {importantDates.map(item => (
-        <div key={item.title} className="date-item">
+              {/* Timeline items */}
+              <div style={{ marginTop: 4 }}>
+                {importantDates.map(item => (
+                  <div key={item.title} className="date-item">
 
-          <div className="date-item-body">
-            <div className="date-title">{item.title}</div>
-            <div className="date-value">{item.value}</div>
+                    <div className="date-item-body">
+                      <div className="date-title">{item.title}</div>
+                      <div className="date-value">{item.value}</div>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
-
-        </div>
-      ))}
-    </div>
-
-  </div>
-</div>
 
         </div>
       </div>
@@ -251,6 +266,7 @@ export default function MainContent() {
                 to <strong>IEEE Xplore</strong> for indexing. Extended versions of selected papers
                 will be invited for submission to partner journals.
               </p>
+              
               <p className="campus-body" style={{ marginTop: 14 }}>
                 All submitted manuscripts are screened using IEEE CrossCheck powered by iThenticate.
                 Plagiarism, self-plagiarism, and duplicate submissions are strictly prohibited and
@@ -263,7 +279,7 @@ export default function MainContent() {
               <div className="campus-btn-row">
                 <a href="#" className="campus-btn-outline">⬇ Download Template</a>
                 <a href="https://cmt3.research.microsoft.com/AICARE202" target="_blank" rel="noreferrer" className="campus-btn">↗ Submit via CMT</a>
-              </div>7
+              </div>
             </div>
           </div>
         </div>
