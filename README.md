@@ -1,8 +1,8 @@
-# AICARE 2025 Web Application
+# AICARE 2027 Web Application
 
 ## 📌 Overview
 
-A responsive web application built for AICARE 2025, featuring event information, committees, schedules, and interactive UI.
+A responsive web application built for AICARE 2027, featuring event information, committees, schedules, and interactive UI.
 
 ## 🚀 Tech Stack
 
