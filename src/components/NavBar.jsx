@@ -34,6 +34,7 @@ const NAV_ITEMS = [
   { label: 'Registration',     path: '/registration' },
   { label: 'Venue',            path: '/venue' },
   { label: 'Program Schedule', path: '/program-schedule' },
+  { label: 'Acknowledgement',  path: '/acknowledgement' }, // <--- ADDED HERE
   { label: 'Contact',          path: '/contact' },
 ];
 
