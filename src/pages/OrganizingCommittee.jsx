@@ -10,8 +10,8 @@ const committeeData = [
   ]},
   { members: [
       { name: 'Prof. Dr. Emilia Balas Valentina', role: 'General Chair' },
-      { name: 'Prof. Dr. Sudipta Basu Pal', role: 'Conference Chair' },
       { name: 'Prof. Dr. Rajashree Paul', role: 'Convener' },
+      { name: 'Prof. Dr. Sudipta Basu Pal', role: 'Conference Chair' },
       { name: 'Prof. Dr. Anirban Das', role: 'Organizing Chair' },
       { name: 'Prof. Sujata Ghatak', role: 'Organizing Co-Chair' },
   ]},
