@@ -24,7 +24,7 @@ export default function PaperSubmissionStyled() {
           </p>
 
           <p style={{ marginTop: 12 }}>
-            Authors must submit their manuscripts using <strong style={{ color: '#0056b3' }}>CMT (Conference Management Toolkit)</strong> link on or before <strong style={{ color: '#e63946' }}>January 20, 2025 23:59 hrs AoE (Anywhere on Earth)</strong>. All manuscripts will be double-blind reviewed for technical content and scope by a technical program committee.
+            Authors must submit their manuscripts using <strong style={{ color: '#0056b3' }}>CMT (Conference Management Toolkit)</strong> link on or before <strong style={{ color: '#e63946' }}>November 30, 2025 23:59 hrs IST (Indian Standard Time)</strong>. All manuscripts will be double-blind reviewed for technical content and scope by a technical program committee.
           </p>
 
           {/* BUTTON */}
