@@ -113,7 +113,7 @@ export default function TechnicalProgramCommitteeBatch2() {
         <div className="page-hero-inner">
           <span className="page-tag">TPC & REVIEWERS</span>
           <h1>Technical Program Committee</h1>
-          <p>Recognizing the academic leaders and industry professionals supporting AICARE 2025.</p>
+          <p>Recognizing the academic leaders and industry professionals supporting AICARE 2027.</p>
         </div>
       </div>
 

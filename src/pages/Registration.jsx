@@ -53,7 +53,7 @@ export default function Registration() {
         <div className="page-hero-inner">
           <span className="page-tag">Registration</span>
           <h1>Registration</h1>
-          <p>AICARE 2027: At least one author must register by 30th August 2025 for inclusion in IEEE Xplore.</p>
+          <p>AICARE 2027: At least one author must register by 30th August 2026 for inclusion in IEEE Xplore.</p>
         </div>
       </div>
 

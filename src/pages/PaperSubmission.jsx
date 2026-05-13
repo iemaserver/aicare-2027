@@ -7,7 +7,7 @@ export default function PaperSubmissionStyled() {
       {/* HERO */}
       <div className="page-hero">
         <div className="page-hero-inner">
-          <span className="page-tag">AICARE 2025</span>
+          <span className="page-tag">AICARE 2027</span>
           <h1>Guidelines for Submission of Manuscripts</h1>
           <p style={{ color: '#f5b83d' }}>
             Submit your research and be part of a global IEEE conference
@@ -20,11 +20,11 @@ export default function PaperSubmissionStyled() {
         {/* INTRO */}
         <div className="page-card">
           <p>
-            Prospective authors are invited to submit original technical papers for publication in the AICARE 2025 Conference Proceedings and for presentation at the Conference.
+            Prospective authors are invited to submit original technical papers for publication in the AICARE 2027 Conference Proceedings and for presentation at the Conference.
           </p>
 
           <p style={{ marginTop: 12 }}>
-            Authors must submit their manuscripts using <strong style={{ color: '#0056b3' }}>CMT (Conference Management Toolkit)</strong> link on or before <strong style={{ color: '#e63946' }}>November 30, 2025 23:59 hrs IST (Indian Standard Time)</strong>. All manuscripts will be double-blind reviewed for technical content and scope by a technical program committee.
+            Authors must submit their manuscripts using <strong style={{ color: '#0056b3' }}>CMT (Conference Management Toolkit)</strong> link on or before <strong style={{ color: '#e63946' }}>November 30, 2026 23:59 hrs IST (Indian Standard Time)</strong>. All manuscripts will be double-blind reviewed for technical content and scope by a technical program committee.
           </p>
 
           {/* BUTTON */}
@@ -46,7 +46,7 @@ export default function PaperSubmissionStyled() {
         {/* WARNING */}
         <div className="page-card" style={{ borderTop: '4px solid #e63946' }}>
           <p>
-            Please note that AICARE 2025 will follow a <strong>double-blind review process</strong>. Papers that do not conform with our double-blind submission policies will be <strong style={{ color: '#e63946' }}>rejected without review</strong>.
+            Please note that AICARE 2027 will follow a <strong>double-blind review process</strong>. Papers that do not conform with our double-blind submission policies will be <strong style={{ color: '#e63946' }}>rejected without review</strong>.
           </p>
         </div>
 
@@ -139,12 +139,12 @@ export default function PaperSubmissionStyled() {
 
           <h3 style={{ color: '#333' }}>Submission Requirements:</h3>
           <p style={{ marginBottom: 16, marginTop: 6 }}>
-            All submissions should be written in English with a maximum page length of SIX (6) printed pages for the regular paper track. Papers should be in PDF format, two columns, (minimum 10-point font) or greater and compliant with other AICARE 2025 manuscript guidelines. Standard IEEE conference templates for LaTeX and Microsoft Word formats can be used.
+            All submissions should be written in English with a maximum page length of SIX (6) printed pages for the regular paper track. Papers should be in PDF format, two columns, (minimum 10-point font) or greater and compliant with other AICARE 7 manuscript guidelines. Standard IEEE conference templates for LaTeX and Microsoft Word formats can be used.
           </p>
 
           <h3 style={{ color: '#333' }}>Archival Policy:</h3>
           <p style={{ marginTop: 6 }}>
-            All accepted and presented papers will be included in AICARE 2025 Conference Proceedings and digitally archived through IEEE Xplore. The IEEE reserves the right to exclude a paper from distribution after the conference (including its removal from IEEE Xplore) if the paper is not presented at the conference.
+            All accepted and presented papers will be included in AICARE 7 Conference Proceedings and digitally archived through IEEE Xplore. The IEEE reserves the right to exclude a paper from distribution after the conference (including its removal from IEEE Xplore) if the paper is not presented at the conference.
           </p>
         </div>
 

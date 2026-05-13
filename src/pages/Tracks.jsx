@@ -7,10 +7,10 @@ export default function ConferenceTracksStyled() {
       {/* HERO */}
       <div className="page-hero">
         <div className="page-hero-inner">
-          <span className="page-tag">AICARE 2025</span>
+          <span className="page-tag">AICARE 2027</span>
           <h1>Conference Tracks</h1>
           <p style={{ color: '#f5b83d' }}>
-            Explore the four major tracks of AICARE 2025 and discover the latest advancements in AI
+            Explore the four major tracks of AICARE 2027 and discover the latest advancements in AI
           </p>
         </div>
       </div>

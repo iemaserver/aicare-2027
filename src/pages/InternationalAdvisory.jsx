@@ -20,7 +20,7 @@ export default function InternationalTPC() {
         <div className="page-hero-inner">
           <span className="page-tag">Global Advisory</span>
           <h1>International TPC</h1>
-          <p>Collaborating with distinguished international researchers to bring a global perspective to AICARE 2025.</p>
+          <p>Collaborating with distinguished international researchers to bring a global perspective to AICARE 2027.</p>
         </div>
       </div>
 

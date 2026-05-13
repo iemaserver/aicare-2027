@@ -91,7 +91,7 @@ export default function TechnicalProgramCommittee() {
         <div className="page-hero-inner">
           <span className="page-tag">TPC & REVIEWERS</span>
           <h1>National Advisory Committee</h1>
-          <p>Distinguished experts and researchers contributing to the academic excellence of AICARE 2025.</p>
+          <p>Distinguished experts and researchers contributing to the academic excellence of AICARE 2027.</p>
         </div>
       </div>
 

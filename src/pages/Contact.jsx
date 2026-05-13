@@ -63,7 +63,7 @@ export default function Contact() {
         <div className="page-hero-inner">
           <span className="page-tag">Contact</span>
           <h1>Get in Touch</h1>
-          <p>Reach out to the AICARE 2025 organizing committee — we're happy to help.</p>
+          <p>Reach out to the AICARE 2027 organizing committee — we're happy to help.</p>
         </div>
       </div>
 
@@ -82,7 +82,7 @@ export default function Contact() {
                     Dr. Sudipta Basu Pal
                   </strong>
                   <span style={{ fontSize: '13px', color: '#0056b3', fontWeight: 600 }}>
-                    Conference Chair, AICARE 2025
+                    Conference Chair, AICARE 2027
                   </span>
                 </div>
               </div>
