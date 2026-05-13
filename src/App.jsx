@@ -25,6 +25,7 @@ import StudentCommittee       from './pages/StudentCommittee';
 import PresentationGuidelines from './pages/PresentationGuidelines';
 import Acknowledgement        from './pages/Acknowledgement';
 import NotFound               from './pages/NotFound';
+import Gallery from './pages/Gallery';
 
 export default function App() {
   return (
@@ -62,7 +63,7 @@ export default function App() {
         
         {/* Acknowledgement */}
         <Route path="/acknowledgement"             element={<Acknowledgement />} />
-
+        <Route path="/gallery" element={<Gallery />} />
         {/* Catch-All 404 Route (Must be last) */}
         <Route path="*"                            element={<NotFound />} />
       </Routes>
