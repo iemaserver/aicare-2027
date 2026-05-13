@@ -21,14 +21,6 @@ export default function Acknowledgement() {
       <div className="page-body">
         <div className="page-card">
           <h2>Microsoft CMT</h2>
-          
-          {/* 
-              COMPLIANCE CHECK: 
-              1. Plain text in a paragraph.
-              2. Static part of the page.
-              3. No bold, strong, or italics.
-              4. Visible in "View Source".
-          */}
           <p>
             The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
           </p>
