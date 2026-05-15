@@ -29,12 +29,15 @@ export default function PaperSubmissionStyled() {
 
           {/* BUTTON */}
           <div style={{ marginTop: 20 }}>
-            <button 
+            <a 
               className="page-btn"
-              onClick={() => alert('Upcoming soon')}
+              href="https://cmt3.research.microsoft.com/AICARE2027"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
             >
               ➤ Link for PAPER SUBMISSION
-            </button>
+            </a>
           </div>
 
           {/* ── CMT ACKNOWLEDGEMENT (Plain Text) ── */}

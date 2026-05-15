@@ -4,7 +4,17 @@ const galleryImages = [
   { src: '/images/campus/image copy 2.png', alt: 'AICARE Session 1' },
   { src: '/images/campus/image copy 3.png', alt: 'UEMK Campus' },
   { src: '/images/campus/image copy 4.png', alt: 'Conference Keynote' },
-  { src: '/images/campus/image copy.png',   alt: 'Conference Photos' }
+  { src: '/images/campus/image copy.png',   alt: 'Conference Photos' },
+  { src: '/images/campus/image copy 5.png',   alt: 'Conference Photos' },
+  { src: '/images/campus/image copy 6.png',   alt: 'Conference Photos' },
+  { src: '/images/campus/image copy 7.png',   alt: 'Conference Photos' },
+  { src: '/images/campus/image copy 8.png',   alt: 'Conference Photos' },
+  { src: '/images/campus/image copy 9.png',   alt: 'Conference Photos' },
+
+
+
+
+
 ];
 
 export default function Gallery() {
