@@ -2,9 +2,10 @@ import '../styles/page.css';
 import { useState } from 'react';
 
 const CONTACTS = [
-  { name: 'Dr. Sudipta Basu Pal',    email: 'sudipta.basupal@uem.edu.in',     role: 'Conference Chair'  },
+  { name: 'Dr. Sudipta Basu Pal',    email: 'Sudipta.Basu@uem.edu.in',     role: 'Conference Chair'  },
   { name: 'Dr. Chiradeep Mukherjee', email: 'chiradeep.mukherjee@uem.edu.in', role: 'Technical Program Committee (TPC) Chair'  },
   { name: 'Dr. Arnab Ghosh',         email: 'arnab.ghosh1@uem.edu.in',         role: 'Sponsorship'        },
+  { name: 'Dr. Anirban Das',         email: 'anirban.das@uem.edu.in',         role: 'Organizing chair'        },
 ];
 
 const SUBJECTS = [

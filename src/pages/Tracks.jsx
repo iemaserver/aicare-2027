@@ -15,10 +15,8 @@ export default function ConferenceTracksStyled() {
         </div>
       </div>
 
-      {/* Made the body wider to utilize screen space */}
       <div className="page-body" style={{ maxWidth: '1300px' }}>
 
-        {/* Using your venue-layout class for perfect 2-col desktop / 1-col mobile */}
         <div className="venue-layout" style={{ marginBottom: '32px' }}>
 
           {/* TRACK 1 */}
@@ -38,7 +36,6 @@ export default function ConferenceTracksStyled() {
               Research Topics <span style={{ fontSize: '0.9rem', color: '#666', fontWeight: 'normal' }}>(19 topics)</span>
             </h3>
             
-            {/* Using your topic-grid and topic-chip to save vertical space */}
             <div className="topic-grid">
               <span className="topic-chip">Machine Learning and Deep Learning Innovations</span>
               <span className="topic-chip">Natural Language Processing Applications</span>
@@ -212,12 +209,15 @@ export default function ConferenceTracksStyled() {
               Conference Tracks - Print or Save as PDF
             </button>
 
-            <button 
-              className="page-btn outline" 
-              onClick={() => alert('coming soon')}
+            {/* ── UPDATED DOWNLOAD LINK ── */}
+            <a 
+              href="/AICARE_Brochure.pdf" 
+              download="AICARE_2027_Brochure.pdf"
+              className="page-btn outline"
+              style={{ textDecoration: 'none', textAlign: 'center' }}
             >
               Event Brochure - Download PDF
-            </button>
+            </a>
           </div>
         </div>
 
