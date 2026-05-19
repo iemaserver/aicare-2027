@@ -1,11 +1,10 @@
 import '../styles/page.css';
 
 const dates = [
-  { label: 'Paper Submission Deadline',        date: 'October 30, 2026',  status: 'upcoming' },
-  { label: 'Call for Papers',                  date: 'April 30, 2026',    status: 'upcoming' },
-  { label: 'Final Notification of Acceptance', date: 'December 1, 2026',  status: 'upcoming' },
-  { label: 'Registration Deadline',            date: 'January 10, 2027',  status: 'upcoming' },
-  { label: 'Camera-Ready Submission',          date: 'January 30, 2027',  status: 'upcoming' },
+  { label: 'Abstract Submission Deadline',        date: 'October 15, 2026',  status: 'upcoming' },
+  { label: 'Final Notification of Acceptance', date: 'January 30, 2027',  status: 'upcoming' },
+  { label: 'Registration Deadline',            date: 'February 10, 2027',  status: 'upcoming' },
+  { label: 'Camera-Ready Submission',          date: 'February 28, 2027',  status: 'upcoming' },
   { label: 'Conference Dates',                 date: 'March 6–7, 2027',   status: 'upcoming' },
 ];
 
