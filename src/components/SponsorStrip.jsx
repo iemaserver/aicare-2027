@@ -9,7 +9,7 @@ export default function SponsorStrip() {
       <div className="center-brand">
         <img src="/images/logos/aicare.png" alt="AICARE Logo" />
         <div className="hi">
-          IEEE Conference Record ID : coming soon
+          IEEE Conference Record ID : 72836
         </div>
       </div>
 

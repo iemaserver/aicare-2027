@@ -26,7 +26,7 @@ export default function Footer() {
               coexistence of humanity and nature.
             </p>
             <p style={{ marginTop: 12 }}>
-              <strong style={{ color: '#fff' }}>Conference Record ID:</strong> xxxxx<br />
+              <strong style={{ color: '#fff' }}>Conference Record ID:</strong> 72836<br />
               <strong style={{ color: '#fff' }}>Dates:</strong> March 6 & 7, 2027<br />
               <strong style={{ color: '#fff' }}>Venue:</strong> UEM Kolkata, New Town
             </p>

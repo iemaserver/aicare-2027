@@ -26,6 +26,7 @@ import PresentationGuidelines from './pages/PresentationGuidelines';
 import Acknowledgement        from './pages/Acknowledgement';
 import NotFound               from './pages/NotFound';
 import Gallery from './pages/Gallery';
+import AnnouncementBar from './components/AnnouncementBar';
 
 export default function App() {
   return (

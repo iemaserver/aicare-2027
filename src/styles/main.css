@@ -1059,3 +1059,39 @@ p { font-size: 15.5px; line-height: 1.9; color: #444; text-align: justify; }
   max-width: 380px;
   width: 100%;
 }
+.announcement-bar {
+  background-color: #e3a933; /* Matches your 2027 gold */
+  color: #000;
+  padding: 2px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 0.8rem;
+  width: 100%;
+  cursor: default;
+  position: relative;
+  z-index: 10;
+}
+
+.announcement-inner {
+  display: inline-block;
+  /* Use a slower speed for better readability */
+  animation: scroll-left 40s linear infinite;
+  will-change: transform; 
+}
+
+/* UX: Pause on hover so users can click or read closely */
+.announcement-inner:hover {
+  animation-play-state: paused;
+}
+
+.announcement-text {
+  margin-right: 40px;
+  text-transform: uppercase; /* Adds a professional 'alert' feel */
+  letter-spacing: 0.5px;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(80%); }
+  to { transform: translateX(-100%); }
+}
