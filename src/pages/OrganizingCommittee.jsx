@@ -25,6 +25,8 @@ const committeeData = [
     members: [
       { name: "Prof. Dr. Chiradeep Mukherjee", role: "TPC Chair" },
       { name: "Prof. Dr. Arnab Ghosh", role: "Publication Chair" },
+      { name: "Prof. Dr. Arijeet Ghosh", role: "Publication Co-Chair" },
+      { name: "PROF.DR. SANANDA PAL", role: "Publication Co-Chair" },
       { name: "Prof. Dr. Maumita Das", role: "TPC Co-Chair" },
       { name: "Prof. Dr. Koustov Mondal", role: "TPC Co-Chair" },
     ],
