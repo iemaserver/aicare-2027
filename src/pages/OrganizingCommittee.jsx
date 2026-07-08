@@ -44,7 +44,12 @@ const committeeData = [
     members: [
       { name: "Prof. Dr. Tanay Pramanik", role: "Publicity Chair" },
       { name: "Prof. Dr. Sayantan Sil", role: "Finance Chair" },
+      { name: "Prof. Dr. Arkabrata Gupta", role: "Finance Co-Chair" },
       { name: "Prof. Dr. Abhishek Haldar", role: "Hospitality Chair" },
+      { name: "Prof. Subrata Mondal", role: "Hospitality Co-Chair" },
+      { name: "Prof. Isita Chandra", role: "Hospitality Co-Chair" },
+      { name: "Prof. Pradipta Sarkar", role: "Hospitality Co-Chair" },
+      { name: "Prof. Dr. Suparna Sau", role: "Hospitality Co-Chair" },
       {
         name: "Prof. Dr. Goutam Dalapati",
         role: "Industry Chair",
